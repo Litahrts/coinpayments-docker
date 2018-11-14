@@ -3,5 +3,5 @@
     <li>docker-compose build</li>
     <li>docker-compose up</li>
     <li>docker exec -it 'container id' install-magento</li>
-    <li>docker exec -it 'container id' install-sampledata (OPTIONAL)</li>
+    <li>docker exec -it 'container id' install-sampledata (OPTIONAL, but s)</li>
 </ol>
