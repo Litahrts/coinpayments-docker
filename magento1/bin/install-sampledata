@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
 cd /tmp
-cp /opt/magento-sample-data-1.9.2.4-2016-10-11-07-38-13.tar.gz .
-tar xvf magento-sample-data-1.9.2.4-2016-10-11-07-38-13.tar.gz
+
+wget https://raw.githubusercontent.com/aurmil/magento-compressed-sample-data/master/1.9.2.4/magento-sample-data-1.9.2.4.tar.gz
+
+tar xvf magento-sample-data-1.9.2.4.tar.gz
+
 cp -R magento-sample-data-1.9.2.4/media/* /var/www/html/media/
 cp -R magento-sample-data-1.9.2.4/skin/* /var/www/html/skin/
+
 chown -R www-data:www-data /var/www/html/media
 
 mysql -h $MYSQL_HOST -u $MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE < magento-sample-data-1.9.2.4/magento_sample_data_for_1.9.2.4.sql
