@@ -6,7 +6,8 @@ ln -s ~/.composer/auth.json /var/www/html/var/composer_home/
 /var/www/html/bin/magento setup:upgrade
 chmod 777 -R /var/www/html/var
 chmod 777 -R /var/www/html/pub
-/var/www/html/bin/magento setup:di:compile
-/var/www/html/bin/magento setup:static-content:deploy
+/var/www/html/bin/magento deploy:mode:set production
+chmod 777 -R /var/www/html/var
+chmod 777 -R /var/www/html/pub
 /var/www/html/bin/magento c:c
 EOSU

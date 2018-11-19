@@ -5,6 +5,5 @@ su www-data <<EOSU
     chmod 777 -R /var/www/html/var
     chmod 777 -R /var/www/html/pub
     /var/www/html/bin/magento setup:upgrade
-    /var/www/html/bin/magento deploy:mode:set production
     /var/www/html/bin/magento setup:static-content:deploy
 EOSU
