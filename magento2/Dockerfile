@@ -1,7 +1,5 @@
 FROM alexcheng/apache2-php7:7.0.24
 
-Label maintainer="pvajda123qwe@gmail.com"
-
 ENV MAGENTO_VERSION 2.1.15
 ENV INSTALL_DIR /var/www/html
 ENV COMPOSER_HOME /var/www/.composer/
@@ -24,6 +22,9 @@ RUN requirements="libpng12-dev libmcrypt-dev libmcrypt4 libcurl3-dev libfreetype
     && docker-php-ext-install soap \
     && requirementsToRemove="libpng12-dev libmcrypt-dev libcurl3-dev libpng12-dev libfreetype6-dev libjpeg-turbo8-dev" \
     && apt-get purge --auto-remove -y $requirementsToRemove
+
+#ADD ./apache2/apache2.conf /etc/apache2/sites-enabled/000-default.conf
+#ADD ./apache2/ports.conf /etc/apache2/ports.conf
 
 RUN chsh -s /bin/bash www-data
 

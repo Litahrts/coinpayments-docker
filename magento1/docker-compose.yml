@@ -3,8 +3,8 @@ services:
   web:
     image: litharts/coinpayments-magento1
     build: .
-    ports:
-      - "80:80"
+    expose:
+      - "8080"
     links:
       - db
     env_file:

@@ -1,0 +1,38 @@
+version: '3.0'
+services:
+  reverseproxy:
+    image: reverseproxy
+    ports:
+        - 8080:8080
+        - 8081:8081
+    restart: always
+  magento1:
+    image: litharts/coinpayments-magento1
+    depends_on:
+        - reverseproxy
+    build: ./magento1
+    links:
+        - db
+    env_file:
+      - ./magento1/env
+    restart: always
+  magento2:
+    image: litharts/coinpayments-magento2
+    depends_on:
+        - reverseproxy
+    build: ./magento2
+    links:
+      - db
+    env_file:
+      - ./magento2/env
+    restart: always
+  db:
+    image: mysql:5.6.23
+    volumes:
+      - db-data:/var/lib/mysql/data
+    env_file:
+      - .env
+    ports:
+      - 3306:3306
+volumes:
+  db-data:
