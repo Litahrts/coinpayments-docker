@@ -24,6 +24,9 @@ RUN docker-php-ext-configure gd --with-jpeg-dir=/usr/lib/ --with-freetype-dir=/u
 COPY ./bin/install-magento /usr/local/bin/install-magento
 RUN chmod +x /usr/local/bin/install-magento
 
+COPY ./bin/install-sampledata /usr/local/bin/install-sampledata
+RUN chmod +x /usr/local/bin/install-sampledata
+
 #ADD ./apache2/apache2.conf /etc/apache2/sites-enabled/000-default.conf
 #ADD ./apache2/ports.conf /etc/apache2/ports.conf
 
